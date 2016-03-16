@@ -34,7 +34,7 @@ http {
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             # try_files resets $fastcgi_path_info, see http://trac.nginx.org/nginx/ticket/321, so we use the if instead
             fastcgi_param PATH_INFO $fastcgi_path_info if_not_empty;
-            fastcgi_param APP_NAMe internal_api;
+            
             if (!-f $document_root$fastcgi_script_name) {
                 # check if the script exists
                 # otherwise, /foo.jpg/bar.php would get passed to FPM, which wouldn't run it as it's not in the list of allowed extensions, but this check is a good idea anyway, just in case
